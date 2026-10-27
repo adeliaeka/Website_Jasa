@@ -163,3 +163,128 @@
     .tentang-cta a:hover {
         background: #927aff;
     }
+@media (max-width: 700px) {
+        .tentang-hero h1 {
+            font-size: 32px;
+        }
+
+        .tentang-profil {
+            grid-template-columns: 1fr;
+            padding: 45px 6%;
+        }
+
+        .nilai-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .tentang-nilai {
+            padding: 40px 6%;
+        }
+    }
+</style>
+
+<div class="tentang">
+
+    <section class="tentang-hero">
+        <span class="label">ABOUT JASAKITA</span>
+
+        <h1>
+            Mengenal <span>JasaKita</span>
+        </h1>
+
+        <p>
+            JasaKita adalah website layanan jasa online yang membantu
+            pengunjung menemukan berbagai layanan digital dengan lebih
+            mudah. Kami hadir untuk memberikan informasi layanan yang
+            praktis, jelas, dan sesuai dengan kebutuhan.
+        </p>
+    </section>
+
+    <section class="tentang-profil">
+        <div>
+            <h2>Siapa Kami?</h2>
+
+            <p>
+                JasaKita menyediakan berbagai pilihan layanan, mulai
+                dari desain grafis, pembuatan website, pengetikan
+                dokumen, desain presentasi, pengelolaan media sosial,
+                hingga edit foto.
+            </p>
+
+            <p>
+                Melalui website ini, pengunjung dapat melihat jenis
+                layanan, mengetahui harga awal, dan menghubungi
+                penyedia jasa untuk menanyakan kebutuhan mereka.
+            </p>
+
+            <p>
+                Kami ingin membuat proses pencarian jasa menjadi
+                lebih sederhana melalui teknologi dan tampilan
+                website yang mudah digunakan.
+            </p>
+        </div>
+
+        <div class="profil-card">
+            <div class="ikon">💻</div>
+            <h3>JasaKita</h3>
+            <p>
+                Solusi layanan digital yang praktis untuk berbagai
+                kebutuhan pribadi maupun bisnis.
+            </p>
+        </div>
+    </section>
+
+    <section class="tentang-nilai">
+        <h2>Visi dan Misi Kami</h2>
+
+        <div class="nilai-grid">
+
+            <div class="nilai-card">
+                <div class="ikon">🎯</div>
+                <h3>Visi</h3>
+                <p>
+                    Menjadi platform layanan jasa yang mudah diakses,
+                    informatif, dan membantu memenuhi kebutuhan
+                    digital masyarakat.
+                </p>
+            </div>
+
+            <div class="nilai-card">
+                <div class="ikon">🚀</div>
+                <h3>Misi</h3>
+                <p>
+                    Menyediakan pilihan jasa yang beragam, informasi
+                    harga yang jelas, serta proses pemesanan yang
+                    praktis dan nyaman.
+                </p>
+            </div>
+
+            <div class="nilai-card">
+                <div class="ikon">⭐</div>
+                <h3>Keunggulan</h3>
+                <p>
+                    Memiliki tampilan modern, navigasi sederhana,
+                    dan pilihan layanan yang dapat disesuaikan
+                    dengan kebutuhan pengunjung.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="tentang-cta">
+        <h2>Butuh Layanan Jasa?</h2>
+
+        <p>
+            Temukan layanan yang sesuai dengan kebutuhanmu
+            melalui JasaKita.
+        </p>
+
+        <a href="{{ url('/layanan') }}">
+            Lihat Layanan →
+        </a>
+    </section>
+
+</div>
+
+@endsection
