@@ -51,3 +51,57 @@
         gap: 40px;
         align-items: center;
     }
+.tentang-profil h2 {
+        font-size: 29px;
+        margin-bottom: 20px;
+    }
+
+    .tentang-profil p {
+        color: #b9bdd2;
+        font-size: 14px;
+        line-height: 1.9;
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+
+    .profil-card {
+        padding: 40px 25px;
+        border: 1px solid #ffffff18;
+        border-radius: 20px;
+        background: linear-gradient(145deg, #292449, #191a31);
+        text-align: center;
+    }
+
+    .profil-card .ikon {
+        font-size: 75px;
+        margin-bottom: 20px;
+    }
+
+    .profil-card h3 {
+        font-size: 25px;
+        color: #b5a4ff;
+        margin-bottom: 12px;
+    }
+
+    .profil-card p {
+        text-align: center;
+    }
+
+    .tentang-nilai {
+        padding: 45px 8%;
+        background: #171a30;
+    }
+
+    .tentang-nilai h2 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 35px;
+    }
+
+    .nilai-grid {
+        max-width: 1100px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
