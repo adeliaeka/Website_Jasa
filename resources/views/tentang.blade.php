@@ -105,3 +105,61 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 22px;
     }
+    .nilai-card {
+        background: #222540;
+        border: 1px solid #ffffff12;
+        border-radius: 15px;
+        padding: 28px;
+        transition: .3s;
+    }
+
+    .nilai-card:hover {
+        transform: translateY(-5px);
+        border-color: #9580ff;
+    }
+
+    .nilai-card .ikon {
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+
+    .nilai-card h3 {
+        color: #b5a4ff;
+        margin-bottom: 12px;
+    }
+
+    .nilai-card p {
+        color: #b9bdd2;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .tentang-cta {
+        text-align: center;
+        padding: 65px 8% 0;
+    }
+
+    .tentang-cta h2 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .tentang-cta p {
+        color: #b9bdd2;
+        margin-bottom: 25px;
+        line-height: 1.8;
+    }
+
+    .tentang-cta a {
+        display: inline-block;
+        background: #7657ff;
+        color: white;
+        text-decoration: none;
+        padding: 14px 25px;
+        border-radius: 9px;
+        font-weight: bold;
+    }
+
+    .tentang-cta a:hover {
+        background: #927aff;
+    }
