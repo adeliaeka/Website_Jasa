@@ -1,290 +1,378 @@
-@extends('layouts.app')
+```php
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan - Platform Jasa Lokal</title>
 
-@section('title', 'Tentang Kami')
+    <style>
+        :root {
+            --ungu: #4C1D95;
+            --ungu-tua: #240046;
+            --ungu-gelap: #18002F;
+            --ungu-muda: #7C3AED;
+            --lavender: #F3E8FF;
+            --putih: #FFFFFF;
+        }
 
-@section('content')
+        * {
+            box-sizing: border-box;
+        }
 
-<style>
-    .tentang {
-        background: #101326;
-        color: white;
-        font-family: Arial, sans-serif;
-        padding-bottom: 70px;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: var(--lavender);
+            color: #333333;
+        }
 
-    .tentang-hero {
-        padding: 80px 8%;
-        text-align: center;
-        background: linear-gradient(135deg, #191632, #28204d);
-    }
+        /* HEADER */
+        header {
+            background: linear-gradient(
+                135deg,
+                var(--ungu-gelap),
+                var(--ungu-tua)
+            );
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+        }
 
-    .tentang-hero .label {
-        color: #b7a8ff;
-        font-size: 13px;
-        letter-spacing: 2px;
-        font-weight: bold;
-    }
-
-    .tentang-hero h1 {
-        font-size: 45px;
-        margin: 20px 0;
-    }
-
-    .tentang-hero h1 span {
-        color: #9580ff;
-    }
-
-    .tentang-hero p {
-        max-width: 700px;
-        margin: auto;
-        color: #c0c2d6;
-        line-height: 1.9;
-        font-size: 15px;
-    }
-
-    .tentang-profil {
-        max-width: 1100px;
-        margin: auto;
-        padding: 65px 30px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        align-items: center;
-    }
-.tentang-profil h2 {
-        font-size: 29px;
-        margin-bottom: 20px;
-    }
-
-    .tentang-profil p {
-        color: #b9bdd2;
-        font-size: 14px;
-        line-height: 1.9;
-        margin-bottom: 15px;
-        text-align: justify;
-    }
-
-    .profil-card {
-        padding: 40px 25px;
-        border: 1px solid #ffffff18;
-        border-radius: 20px;
-        background: linear-gradient(145deg, #292449, #191a31);
-        text-align: center;
-    }
-
-    .profil-card .ikon {
-        font-size: 75px;
-        margin-bottom: 20px;
-    }
-
-    .profil-card h3 {
-        font-size: 25px;
-        color: #b5a4ff;
-        margin-bottom: 12px;
-    }
-
-    .profil-card p {
-        text-align: center;
-    }
-
-    .tentang-nilai {
-        padding: 45px 8%;
-        background: #171a30;
-    }
-
-    .tentang-nilai h2 {
-        text-align: center;
-        font-size: 30px;
-        margin-bottom: 35px;
-    }
-
-    .nilai-grid {
-        max-width: 1100px;
-        margin: auto;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 22px;
-    }
-    .nilai-card {
-        background: #222540;
-        border: 1px solid #ffffff12;
-        border-radius: 15px;
-        padding: 28px;
-        transition: .3s;
-    }
-
-    .nilai-card:hover {
-        transform: translateY(-5px);
-        border-color: #9580ff;
-    }
-
-    .nilai-card .ikon {
-        font-size: 35px;
-        margin-bottom: 15px;
-    }
-
-    .nilai-card h3 {
-        color: #b5a4ff;
-        margin-bottom: 12px;
-    }
-
-    .nilai-card p {
-        color: #b9bdd2;
-        font-size: 14px;
-        line-height: 1.8;
-    }
-
-    .tentang-cta {
-        text-align: center;
-        padding: 65px 8% 0;
-    }
-
-    .tentang-cta h2 {
-        font-size: 30px;
-        margin-bottom: 15px;
-    }
-
-    .tentang-cta p {
-        color: #b9bdd2;
-        margin-bottom: 25px;
-        line-height: 1.8;
-    }
-
-    .tentang-cta a {
-        display: inline-block;
-        background: #7657ff;
-        color: white;
-        text-decoration: none;
-        padding: 14px 25px;
-        border-radius: 9px;
-        font-weight: bold;
-    }
-
-    .tentang-cta a:hover {
-        background: #927aff;
-    }
-@media (max-width: 700px) {
-        .tentang-hero h1 {
+        header h1 {
+            margin: 0 0 10px;
             font-size: 32px;
         }
 
-        .tentang-profil {
-            grid-template-columns: 1fr;
-            padding: 45px 6%;
+        header p {
+            margin: 0;
+            color: #E9D5FF;
         }
 
-        .nilai-grid {
-            grid-template-columns: 1fr;
+        /* NAVIGASI */
+        nav {
+            background: var(--ungu);
+            padding: 16px 10px;
+            text-align: center;
         }
 
-        .tentang-nilai {
-            padding: 40px 6%;
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
         }
-    }
-</style>
 
-<div class="tentang">
+        nav a:hover {
+            color: #D8B4FE;
+        }
 
-    <section class="tentang-hero">
-        <span class="label">ABOUT JASAKITA</span>
+        /* CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
 
-        <h1>
-            Mengenal <span>JasaKita</span>
-        </h1>
+        .judul {
+            text-align: center;
+            color: var(--ungu-tua);
+        }
 
-        <p>
-            JasaKita adalah website layanan jasa online yang membantu
-            pengunjung menemukan berbagai layanan digital dengan lebih
-            mudah. Kami hadir untuk memberikan informasi layanan yang
-            praktis, jelas, dan sesuai dengan kebutuhan.
+        .sub {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        /* KARTU LAYANAN */
+        .layanan {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(220px, 1fr)
+            );
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--putih);
+            padding: 25px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid #DDD6FE;
+            box-shadow: 0 4px 12px rgba(36, 0, 70, 0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(36, 0, 70, 0.2);
+        }
+
+        .icon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 15px;
+            background: var(--ungu-tua);
+            color: white;
+            border-radius: 50%;
+            font-size: 30px;
+            line-height: 65px;
+        }
+
+        .icon.lain {
+            background: var(--ungu-muda);
+            color: white;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            color: var(--ungu-tua);
+            font-size: 19px;
+        }
+
+        .card p {
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .harga {
+            color: var(--ungu);
+            font-weight: bold;
+            font-size: 16px !important;
+        }
+
+        /* KEUNGGULAN */
+        .keunggulan {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(170px, 1fr)
+            );
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .keunggulan div {
+            background: white;
+            border-left: 5px solid var(--ungu);
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(36, 0, 70, 0.1);
+            line-height: 1.6;
+        }
+
+        .keunggulan strong {
+            color: var(--ungu-tua);
+        }
+
+        /* TOMBOL AJAKAN */
+        .cta {
+            text-align: center;
+            margin-top: 45px;
+            background: linear-gradient(
+                135deg,
+                var(--ungu-gelap),
+                var(--ungu)
+            );
+            color: white;
+            padding: 35px 20px;
+            border-radius: 14px;
+            box-shadow: 0 5px 15px rgba(36, 0, 70, 0.2);
+        }
+
+        .cta h2 {
+            margin-top: 0;
+        }
+
+        .cta p {
+            line-height: 1.6;
+        }
+
+        .tombol {
+            display: inline-block;
+            background: #E9D5FF;
+            color: var(--ungu-tua);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .tombol:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--ungu-gelap);
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 25px;
+            }
+
+            nav a {
+                margin: 7px;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 15px;
+            }
+
+            .layanan {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Platform Jasa Lokal</h1>
+        <p>Temukan penyedia jasa terpercaya di sekitar Anda dengan mudah</p>
+    </header>
+
+    <nav>
+        <a href="/">Beranda</a>
+        <a href="/layanan">Layanan</a>
+        <a href="/tentang">Tentang</a>
+        <a href="/kontak">Kontak</a>
+    </nav>
+
+    <div class="container">
+
+        <h2 class="judul">Layanan Kami</h2>
+
+        <p class="sub">
+            Butuh jasa tapi sulit mencari?
+            Pilih kategori jasa yang Anda butuhkan.
         </p>
-    </section>
 
-    <section class="tentang-profil">
-        <div>
-            <h2>Siapa Kami?</h2>
+        <div class="layanan">
 
-            <p>
-                JasaKita menyediakan berbagai pilihan layanan, mulai
-                dari desain grafis, pembuatan website, pengetikan
-                dokumen, desain presentasi, pengelolaan media sosial,
-                hingga edit foto.
-            </p>
-
-            <p>
-                Melalui website ini, pengunjung dapat melihat jenis
-                layanan, mengetahui harga awal, dan menghubungi
-                penyedia jasa untuk menanyakan kebutuhan mereka.
-            </p>
-
-            <p>
-                Kami ingin membuat proses pencarian jasa menjadi
-                lebih sederhana melalui teknologi dan tampilan
-                website yang mudah digunakan.
-            </p>
-        </div>
-
-        <div class="profil-card">
-            <div class="ikon">💻</div>
-            <h3>JasaKita</h3>
-            <p>
-                Solusi layanan digital yang praktis untuk berbagai
-                kebutuhan pribadi maupun bisnis.
-            </p>
-        </div>
-    </section>
-
-    <section class="tentang-nilai">
-        <h2>Visi dan Misi Kami</h2>
-
-        <div class="nilai-grid">
-
-            <div class="nilai-card">
-                <div class="ikon">🎯</div>
-                <h3>Visi</h3>
-                <p>
-                    Menjadi platform layanan jasa yang mudah diakses,
-                    informatif, dan membantu memenuhi kebutuhan
-                    digital masyarakat.
-                </p>
+            <div class="card">
+                <div class="icon">❄️</div>
+                <h3>Servis AC</h3>
+                <p>Cuci, perbaikan, dan pemasangan AC oleh teknisi berpengalaman.</p>
+                <p class="harga">Mulai Rp75.000</p>
             </div>
 
-            <div class="nilai-card">
-                <div class="ikon">🚀</div>
-                <h3>Misi</h3>
-                <p>
-                    Menyediakan pilihan jasa yang beragam, informasi
-                    harga yang jelas, serta proses pemesanan yang
-                    praktis dan nyaman.
-                </p>
+            <div class="card">
+                <div class="icon">⚡</div>
+                <h3>Tukang Listrik</h3>
+                <p>Instalasi, perbaikan korsleting, dan pemasangan lampu atau stopkontak.</p>
+                <p class="harga">Mulai Rp50.000</p>
             </div>
 
-            <div class="nilai-card">
-                <div class="ikon">⭐</div>
-                <h3>Keunggulan</h3>
-                <p>
-                    Memiliki tampilan modern, navigasi sederhana,
-                    dan pilihan layanan yang dapat disesuaikan
-                    dengan kebutuhan pengunjung.
-                </p>
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Servis Laptop / Komputer</h3>
+                <p>Perbaikan hardware, instal ulang, dan pembersihan perangkat.</p>
+                <p class="harga">Mulai Rp100.000</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🧹</div>
+                <h3>Cleaning Service</h3>
+                <p>Pembersihan rumah, kantor, dan kos secara rapi dan menyeluruh.</p>
+                <p class="harga">Mulai Rp150.000</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📷</div>
+                <h3>Fotografer</h3>
+                <p>Foto acara, produk, wisuda, hingga pernikahan.</p>
+                <p class="harga">Mulai Rp300.000</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">💄</div>
+                <h3>Makeup Artist</h3>
+                <p>Rias wajah untuk wisuda, pesta, dan acara spesial lainnya.</p>
+                <p class="harga">Mulai Rp200.000</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌳</div>
+                <h3>Perawatan Taman</h3>
+                <p>Pemangkasan, penanaman, dan perawatan taman rumah atau kantor.</p>
+                <p class="harga">Mulai Rp100.000</p>
+            </div>
+
+            <div class="card">
+                <div class="icon lain">＋</div>
+                <h3>Dan Lainnya...</h3>
+                <p>Masih banyak kategori jasa lain yang terus kami tambahkan.</p>
+                <p class="harga">Segera hadir</p>
             </div>
 
         </div>
-    </section>
 
-    <section class="tentang-cta">
-        <h2>Butuh Layanan Jasa?</h2>
+        <h2 class="judul" style="margin-top: 50px;">
+            Kenapa Memilih Platform Ini?
+        </h2>
 
-        <p>
-            Temukan layanan yang sesuai dengan kebutuhanmu
-            melalui JasaKita.
-        </p>
+        <div class="keunggulan">
 
-        <a href="{{ url('/layanan') }}">
-            Lihat Layanan →
-        </a>
-    </section>
+            <div>
+                <strong>Jasa Sesuai</strong><br>
+                Mudah menemukan penyedia jasa yang cocok.
+            </div>
 
-</div>
+            <div>
+                <strong>Harga Jelas</strong><br>
+                Ketahui estimasi harga sebelum memesan.
+            </div>
 
-@endsection
+            <div>
+                <strong>Kualitas Terpercaya</strong><br>
+                Lihat rating dan ulasan penyedia jasa.
+            </div>
+
+            <div>
+                <strong>Jadwal Fleksibel</strong><br>
+                Tentukan jadwal pengerjaan sesuai waktu Anda.
+            </div>
+
+            <div>
+                <strong>Dekat Lokasi</strong><br>
+                Temukan penyedia jasa di sekitar Anda.
+            </div>
+
+        </div>
+
+        <div class="cta">
+            <h2>Butuh Jasa Sekarang?</h2>
+            <p>Pesan jasa dengan mudah atau daftar sebagai penyedia jasa.</p>
+            <a href="/kontak" class="tombol">Cari Jasa</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; <?= date('Y') ?> Platform Jasa Lokal. Semua Hak Dilindungi.</p>
+    </footer>
+
+</body>
+</html>
+```
