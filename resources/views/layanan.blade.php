@@ -355,3 +355,13 @@
                 </div>
 
             </div>
+
+            <h2 class="judul" style="margin-top: 70px;">Kenapa Memilih JasaKita?</h2>
+
+            <div class="keunggulan">
+                <div>
+                    <strong>Jasa Sesuai</strong><br>
+                    Mudah menemukan penyedia jasa yang cocok.
+                </div>
+                <div>
+                    <strong>Harga Jelas</strong><br>
