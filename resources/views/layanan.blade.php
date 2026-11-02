@@ -339,3 +339,19 @@
                     <p>Rias wajah untuk wisuda, pesta, dan acara spesial lainnya.</p>
                     <p class="harga">Mulai Rp200.000</p>
                 </div>
+
+                <div class="card">
+                    <div class="icon">🌳</div>
+                    <h3>Perawatan Taman</h3>
+                    <p>Pemangkasan, penanaman, dan perawatan taman rumah atau kantor.</p>
+                    <p class="harga">Mulai Rp100.000</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon lain">＋</div>
+                    <h3>Dan Lainnya...</h3>
+                    <p>Masih banyak kategori jasa lain yang terus kami tambahkan.</p>
+                    <p class="harga">Segera hadir</p>
+                </div>
+
+            </div>
