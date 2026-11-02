@@ -304,3 +304,38 @@
                     <p>Cuci, perbaikan, dan pemasangan AC oleh teknisi berpengalaman.</p>
                     <p class="harga">Mulai Rp75.000</p>
                 </div>
+
+                <div class="card">
+                    <div class="icon">⚡</div>
+                    <h3>Tukang Listrik</h3>
+                    <p>Instalasi, perbaikan korsleting, dan pemasangan lampu atau stopkontak.</p>
+                    <p class="harga">Mulai Rp50.000</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">💻</div>
+                    <h3>Servis Laptop / Komputer</h3>
+                    <p>Perbaikan hardware, instal ulang, dan pembersihan perangkat.</p>
+                    <p class="harga">Mulai Rp100.000</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🧹</div>
+                    <h3>Cleaning Service</h3>
+                    <p>Pembersihan rumah, kantor, dan kos secara rapi dan menyeluruh.</p>
+                    <p class="harga">Mulai Rp150.000</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">📷</div>
+                    <h3>Fotografer</h3>
+                    <p>Foto acara, produk, wisuda, hingga pernikahan.</p>
+                    <p class="harga">Mulai Rp300.000</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">💄</div>
+                    <h3>Makeup Artist</h3>
+                    <p>Rias wajah untuk wisuda, pesta, dan acara spesial lainnya.</p>
+                    <p class="harga">Mulai Rp200.000</p>
+                </div>
