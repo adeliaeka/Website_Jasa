@@ -252,3 +252,69 @@
         font-weight: bold;
         margin-bottom: 8px;
     }
+
+    .layanan-penyedia {
+        color: var(--muted);
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .layanan-btn {
+        display: inline-block;
+        width: 100%;
+        padding: 12px;
+        background: var(--purple-dark);
+        color: white;
+        text-decoration: none;
+        border-radius: 9px;
+        font-weight: bold;
+        margin-top: auto;
+        transition: .3s;
+    }
+
+    .layanan-btn:hover {
+        background: var(--purple);
+        color: white;
+    }
+
+    .layanan-kosong {
+        text-align: center;
+        color: var(--muted);
+        padding: 40px 20px;
+        background: var(--bg2);
+        border-radius: 15px;
+        grid-column: 1 / -1;
+    }
+
+    .layanan-kosong h3 {
+        color: white;
+    }
+
+    .layanan-cta {
+        text-align: center;
+        background: linear-gradient(135deg, #6d28d9, #4c1d95);
+        padding: 50px 20px;
+        border-radius: 18px;
+        margin-top: 70px;
+    }
+
+    .layanan-cta h2 {
+        margin: 0 0 12px;
+        color: white;
+    }
+
+    .layanan-cta p {
+        color: #e4d9ff;
+        margin-bottom: 22px;
+    }
+
+    .layanan-cta a {
+        display: inline-block;
+        background: white;
+        color: #2a1b5e;
+        padding: 12px 28px;
+        border-radius: 9px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: .3s;
+    }
