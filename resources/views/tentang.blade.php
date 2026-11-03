@@ -135,3 +135,116 @@
         font-size: 28px;
         margin-bottom: 12px;
     }
+    .profile-visual p {
+        color: #c0c2d6;
+        line-height: 1.8;
+        font-size: 14px;
+    }
+
+    .profile-tag {
+        display: inline-block;
+        margin-top: 22px;
+        background: #7657ff30;
+        color: #c7bbff;
+        padding: 9px 18px;
+        border-radius: 30px;
+        font-size: 12px;
+    }
+
+    /* LAYANAN */
+    .about-services {
+        padding: 85px 8%;
+        background: #171a30;
+    }
+
+    .section-heading {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+        margin: 15px 0;
+    }
+
+    .section-heading h2 span {
+        color: #a995ff;
+    }
+
+    .section-heading p {
+        color: #b9bdd2;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .service-grid {
+        max-width: 1150px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .service-card {
+        padding: 30px 25px;
+        background: linear-gradient(145deg, #252846, #1d203a);
+        border: 1px solid #ffffff15;
+        border-radius: 18px;
+        transition: .35s;
+    }
+
+    .service-card:hover {
+        transform: translateY(-8px);
+        border-color: #9580ff;
+        box-shadow: 0 12px 30px #7657ff20;
+    }
+
+    .service-icon {
+        width: 58px;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #7657ff25;
+        border-radius: 15px;
+        font-size: 29px;
+        margin-bottom: 22px;
+    }
+
+    .service-card h3 {
+        color: #c1b3ff;
+        font-size: 19px;
+        margin-bottom: 12px;
+    }
+
+    .service-card p {
+        color: #b9bdd2;
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    /* VISI MISI */
+    .about-values {
+        padding: 85px 8%;
+    }
+
+    .values-grid {
+        max-width: 1150px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .value-card {
+        background: linear-gradient(145deg, #292449, #191a31);
+        padding: 32px 25px;
+        border-radius: 18px;
+        border: 1px solid #ffffff18;
+        transition: .3s;
+    }
+
+    .value-card:hover {
+        transform: translateY(-7px);
+        border-color: #9580ff;
+    }
