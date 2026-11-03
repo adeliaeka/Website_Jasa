@@ -143,7 +143,9 @@
                 <h1>Butuh bantuan? <span class="jk-hl">Temukan penyedia jasa terpercaya.</span></h1>
                 <p class="jk-hero__lead">Bandingkan penyedia jasa terverifikasi di sekitarmu, pilih yang paling cocok, lalu pesan tanpa ribet.</p>
                 <div class="jk-hero__cta">
-                    <a class="jk-btn jk-btn--sun" href="{{ url('/layanan') }}">Cari jasa sekarang</a>
+                    <a class="jk-btn jk-btn--blue" href="{{ route('penyediaan') }}">
+                        Lihat Penyediaan Jasa
+                    </a>
                     <a class="jk-btn jk-btn--line" href="{{ url('/register') }}">Daftar jadi penyedia</a>
                 </div>
                 <ul class="jk-trust">
@@ -156,7 +158,7 @@
             <aside class="jk-order" aria-labelledby="pesan-cepat">
                 <h2 id="pesan-cepat">Ceritakan masalahmu</h2>
                 <p>Kami carikan penyedia jasa yang paling cocok.</p>
-                <form action="{{ url('/layanan') }}" method="GET">
+                <form action="{{ route('penyediaan') }}" method="GET">
                     <label for="q" class="sr-only" style="position:absolute;left:-9999px">Masalah atau jasa yang dicari</label>
                     <textarea id="q" name="q" placeholder="Contoh: AC di kamar tidak dingin dan menetes"></textarea>
                     <button type="submit" class="jk-btn jk-btn--blue">Cari penyedia</button>
@@ -180,7 +182,10 @@
                         <h3>{{ $nama }}</h3>
                         <p>{{ $isi }}</p>
                         <div class="jk-card__meta">{{ $jumlah }}</div>
-                        <a class="jk-btn jk-btn--blue" href="{{ url('/layanan?kategori=' . urlencode($nama)) }}">Lihat penyedia</a>
+                        <a class="jk-btn jk-btn--blue"
+                           href="{{ route('penyediaan', ['kategori' => $nama]) }}">
+                           Lihat Penyediaan Jasa
+                        </a>
                     </article>
                 @endforeach
             </div>
@@ -200,7 +205,9 @@
                         <p class="jk-tier__job">{{ $bidang }}</p>
                         <div class="jk-tier__rate">{{ $rating }} <small>({{ $ulasan }})</small></div>
                         <div class="jk-price"><small>Mulai</small> {{ $harga }}</div>
-                        <a class="jk-btn" href="{{ url('/layanan') }}">Lihat profil</a>
+                        <a class="jk-btn jk-btn--blue" href="{{ route('penyediaan') }}">
+                            Lihat Penyediaan Jasa
+                        </a>
                     </article>
                 @endforeach
             </div>
@@ -237,7 +244,9 @@
             <h2>Cari jasa atau tawarkan keahlianmu.</h2>
             <p>Pelanggan menemukan penyedia yang tepat, penyedia mendapat pesanan baru. Gratis untuk mulai.</p>
             <div class="jk-cta__btns">
-                <a class="jk-btn jk-btn--blue" href="{{ url('/layanan') }}">Cari jasa</a>
+                <a class="jk-btn jk-btn--blue" href="{{ route('penyediaan') }}">
+                    Lihat Penyediaan Jasa
+                </a>
                 <a class="jk-btn jk-btn--ink" href="{{ url('/register') }}">Daftar jadi penyedia</a>
             </div>
         </div>
