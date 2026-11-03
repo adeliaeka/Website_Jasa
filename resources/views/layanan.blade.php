@@ -1,4 +1,3 @@
-```php
 @extends('layouts.app')
 
 @section('title', 'Layanan')
@@ -10,42 +9,42 @@
         [
             'nama' => 'Servis & Perbaikan',
             'icon' => '🔧',
-            'deskripsi' => 'Layanan servis AC, elektronik, kendaraan, dan peralatan rumah.',
+            'deskripsi' => 'AC, elektronik, kendaraan, dan peralatan rumah.',
             'harga' => 'Mulai Rp75.000',
             'penyedia' => '48 penyedia'
         ],
         [
             'nama' => 'Kebersihan',
             'icon' => '🧹',
-            'deskripsi' => 'Layanan kebersihan rumah, kantor, kos, dan laundry.',
+            'deskripsi' => 'Bersih-bersih rumah, kantor, dan laundry.',
             'harga' => 'Mulai Rp90.000',
             'penyedia' => '35 penyedia'
         ],
         [
             'nama' => 'Instalasi',
             'icon' => '⚡',
-            'deskripsi' => 'Pemasangan listrik, CCTV, internet, dan perabot rumah.',
+            'deskripsi' => 'Pemasangan listrik, CCTV, internet, dan perabot.',
             'harga' => 'Mulai Rp50.000',
             'penyedia' => '27 penyedia'
         ],
         [
             'nama' => 'Desain & Digital',
             'icon' => '💻',
-            'deskripsi' => 'Jasa desain poster, logo, website, dan pengolahan data.',
+            'deskripsi' => 'Poster, logo, website, dan olah data.',
             'harga' => 'Mulai Rp120.000',
             'penyedia' => '52 penyedia'
         ],
         [
             'nama' => 'Acara & Katering',
             'icon' => '🎉',
-            'deskripsi' => 'Jasa dekorasi, fotografi, dokumentasi, dan katering.',
+            'deskripsi' => 'Dekorasi, dokumentasi, dan makanan acara.',
             'harga' => 'Mulai Rp200.000',
             'penyedia' => '19 penyedia'
         ],
         [
             'nama' => 'Pendidikan',
             'icon' => '📚',
-            'deskripsi' => 'Les privat, bimbingan belajar, dan kelas keterampilan.',
+            'deskripsi' => 'Les privat, bimbingan, dan kelas keterampilan.',
             'harga' => 'Mulai Rp50.000',
             'penyedia' => '41 penyedia'
         ],
@@ -64,7 +63,6 @@
         return $sesuaiKategori && $sesuaiPencarian;
     });
 @endphp
-
 <style>
     .layanan-page {
         --bg: #12102b;
@@ -77,18 +75,25 @@
 
         background: var(--bg);
         color: var(--text);
-        font-family: Arial, sans-serif;
+        font-family: 'Figtree', Arial, sans-serif;
         min-height: 100vh;
+        line-height: 1.6;
     }
 
     .layanan-page * {
         box-sizing: border-box;
     }
 
+    .layanan-page h1,
+    .layanan-page h2,
+    .layanan-page h3 {
+        font-family: 'Bricolage Grotesque', Arial, sans-serif;
+    }
+
     .layanan-hero {
         background: linear-gradient(135deg, #2a1b5e, #14102e);
         text-align: center;
-        padding: 75px 20px;
+        padding: 85px 20px;
     }
 
     .layanan-hero .label {
@@ -100,43 +105,46 @@
     }
 
     .layanan-hero h1 {
-        font-size: clamp(30px, 5vw, 45px);
+        font-size: clamp(30px, 5vw, 48px);
         margin: 0 0 20px;
+        color: white;
     }
 
     .layanan-hero h1 span {
         color: var(--purple);
     }
 
-    .layanan-hero p {
+    .layanan-hero p.deskripsi {
         color: var(--muted);
         max-width: 650px;
         margin: auto;
         line-height: 1.8;
+        font-size: 16px;
     }
 
     .layanan-container {
         max-width: 1150px;
         margin: auto;
-        padding: 65px 20px;
+        padding: 70px 20px;
     }
 
     .layanan-judul {
         text-align: center;
         font-size: 30px;
-        margin-bottom: 12px;
+        margin: 0 0 12px;
+        color: white;
     }
 
     .layanan-sub {
         color: var(--muted);
         text-align: center;
-        margin-bottom: 35px;
+        margin: 0 0 35px;
     }
 
     .kategori-info {
         background: #211a49;
         border: 1px solid var(--line);
-        padding: 15px 20px;
+        padding: 16px 20px;
         border-radius: 12px;
         margin-bottom: 30px;
         color: #e9ddff;
@@ -164,6 +172,15 @@
         background: var(--bg2);
         color: white;
         outline: none;
+        font-size: 15px;
+    }
+
+    .layanan-search input:focus {
+        border-color: var(--purple);
+    }
+
+    .layanan-search input::placeholder {
+        color: #9990c4;
     }
 
     .layanan-search button {
@@ -174,6 +191,7 @@
         color: white;
         font-weight: bold;
         cursor: pointer;
+        transition: .3s;
     }
 
     .layanan-search button:hover {
@@ -189,7 +207,7 @@
     .layanan-card {
         background: var(--bg2);
         border: 1px solid var(--line);
-        padding: 28px 22px;
+        padding: 30px 23px;
         border-radius: 18px;
         text-align: center;
         transition: .3s;
@@ -199,17 +217,19 @@
     }
 
     .layanan-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-6px);
         border-color: var(--purple);
+        box-shadow: 0 10px 25px rgba(0,0,0,.2);
     }
 
     .layanan-icon {
-        width: 70px;
-        height: 70px;
+        width: 72px;
+        height: 72px;
         display: grid;
         place-items: center;
         border-radius: 50%;
         background: #30265f;
+        border: 1px solid var(--purple);
         font-size: 32px;
         margin-bottom: 18px;
     }
@@ -217,6 +237,7 @@
     .layanan-card h3 {
         font-size: 20px;
         margin: 0 0 12px;
+        color: white;
     }
 
     .layanan-card p {
@@ -253,27 +274,33 @@
 
     .layanan-btn:hover {
         background: var(--purple);
+        color: white;
     }
 
     .layanan-kosong {
         text-align: center;
         color: var(--muted);
-        padding: 40px 15px;
+        padding: 40px 20px;
         background: var(--bg2);
         border-radius: 15px;
         grid-column: 1 / -1;
     }
 
+    .layanan-kosong h3 {
+        color: white;
+    }
+
     .layanan-cta {
         text-align: center;
         background: linear-gradient(135deg, #6d28d9, #4c1d95);
-        padding: 45px 20px;
+        padding: 50px 20px;
         border-radius: 18px;
-        margin-top: 65px;
+        margin-top: 70px;
     }
 
     .layanan-cta h2 {
         margin: 0 0 12px;
+        color: white;
     }
 
     .layanan-cta p {
@@ -285,13 +312,19 @@
         display: inline-block;
         background: white;
         color: #2a1b5e;
-        padding: 12px 25px;
+        padding: 12px 28px;
         border-radius: 9px;
         text-decoration: none;
         font-weight: bold;
+        transition: .3s;
     }
 
-    @media (max-width: 800px) {
+    .layanan-cta a:hover {
+        background: #ede9fe;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 850px) {
         .layanan-grid {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -305,8 +338,16 @@
         .layanan-search {
             flex-direction: column;
         }
+
+        .layanan-container {
+            padding: 45px 15px;
+        }
+
+        .layanan-hero {
+            padding: 55px 15px;
+        }
     }
-    </style>
+</style>
 
 <div class="layanan-page">
 
@@ -316,34 +357,41 @@
 
         <h1>Layanan <span>JasaKita</span></h1>
 
-        <p>
-            Temukan berbagai layanan jasa sesuai kebutuhan Anda.
-            Pilih kategori dan temukan penyedia jasa terpercaya
+        <p class="deskripsi">
+            Butuh jasa tapi sulit mencari?
+            Pilih kategori jasa yang Anda butuhkan
+            dan temukan penyedia jasa terpercaya
             dengan mudah dan praktis.
         </p>
     </section>
 
-    {{-- DAFTAR KATEGORI --}}
+    {{-- KATEGORI JASA --}}
     <section class="layanan-container">
 
         <h2 class="layanan-judul">Kategori Jasa</h2>
 
         <p class="layanan-sub">
             Pilih kategori jasa yang sesuai dengan kebutuhan Anda.
+            Harga dapat berbeda sesuai penyedia jasa.
         </p>
 
-        {{-- INFORMASI KATEGORI YANG DIPILIH --}}
+        {{-- KATEGORI YANG DIPILIH DARI BERANDA --}}
         @if($pilihan)
             <div class="kategori-info">
                 Menampilkan kategori:
                 <strong>{{ $pilihan }}</strong>
+
                 &nbsp; | &nbsp;
-                <a href="{{ url('/layanan') }}">Tampilkan semua kategori</a>
+
+                <a href="{{ url('/layanan') }}">
+                    Tampilkan Semua Kategori
+                </a>
             </div>
         @endif
 
-        {{-- PENCARIAN --}}
+        {{-- FORM PENCARIAN --}}
         <form action="{{ url('/layanan') }}" method="GET" class="layanan-search">
+
             @if($pilihan)
                 <input type="hidden" name="kategori" value="{{ $pilihan }}">
             @endif
@@ -355,15 +403,18 @@
                 value="{{ $pencarian }}"
             >
 
-            <button type="submit">Cari Jasa</button>
+            <button type="submit">
+                Cari Jasa
+            </button>
+
         </form>
 
-        {{-- KARTU KATEGORI --}}
+        {{-- DAFTAR KATEGORI --}}
         <div class="layanan-grid">
 
             @forelse($hasil as $item)
 
-                <div class="layanan-card">
+                <article class="layanan-card">
 
                     <div class="layanan-icon">
                         {{ $item['icon'] }}
@@ -381,20 +432,22 @@
                         {{ $item['penyedia'] }}
                     </div>
 
-                    <a
-                        href="{{ url('/register') }}"
-                        class="layanan-btn"
-                    >
+                    <a href="{{ url('/register') }}" class="layanan-btn">
                         Pilih Layanan
                     </a>
 
-                </div>
+                </article>
 
             @empty
 
                 <div class="layanan-kosong">
-                    <h3>Kategori tidak ditemukan</h3>
-                    <p>Silakan pilih kategori lainnya atau coba kata kunci berbeda.</p>
+                    <h3>Kategori Tidak Ditemukan</h3>
+
+                    <p>
+                        Maaf, kategori yang Anda cari belum tersedia.
+                        Silakan coba kata kunci lainnya.
+                    </p>
+
                     <a href="{{ url('/layanan') }}" class="layanan-btn">
                         Lihat Semua Kategori
                     </a>
@@ -406,6 +459,7 @@
 
         {{-- CTA --}}
         <div class="layanan-cta">
+
             <h2>Ingin Menjadi Penyedia Jasa?</h2>
 
             <p>
@@ -416,6 +470,7 @@
             <a href="{{ url('/register') }}">
                 Daftar Sekarang
             </a>
+
         </div>
 
     </section>
@@ -423,4 +478,3 @@
 </div>
 
 @endsection
-```
