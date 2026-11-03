@@ -318,3 +318,163 @@
         font-weight: bold;
         transition: .3s;
     }
+
+    .layanan-cta a:hover {
+        background: #ede9fe;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 850px) {
+        .layanan-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 550px) {
+        .layanan-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .layanan-search {
+            flex-direction: column;
+        }
+
+        .layanan-container {
+            padding: 45px 15px;
+        }
+
+        .layanan-hero {
+            padding: 55px 15px;
+        }
+    }
+</style>
+
+<div class="layanan-page">
+
+    {{-- HERO --}}
+    <section class="layanan-hero">
+        <p class="label">Platform Jasa Lokal</p>
+
+        <h1>Layanan <span>JasaKita</span></h1>
+
+        <p class="deskripsi">
+            Butuh jasa tapi sulit mencari?
+            Pilih kategori jasa yang Anda butuhkan
+            dan temukan penyedia jasa terpercaya
+            dengan mudah dan praktis.
+        </p>
+    </section>
+
+    {{-- KATEGORI JASA --}}
+    <section class="layanan-container">
+
+        <h2 class="layanan-judul">Kategori Jasa</h2>
+
+        <p class="layanan-sub">
+            Pilih kategori jasa yang sesuai dengan kebutuhan Anda.
+            Harga dapat berbeda sesuai penyedia jasa.
+        </p>
+
+        {{-- KATEGORI YANG DIPILIH DARI BERANDA --}}
+        @if($pilihan)
+            <div class="kategori-info">
+                Menampilkan kategori:
+                <strong>{{ $pilihan }}</strong>
+
+                &nbsp; | &nbsp;
+
+                <a href="{{ url('/layanan') }}">
+                    Tampilkan Semua Kategori
+                </a>
+            </div>
+        @endif
+
+        {{-- FORM PENCARIAN --}}
+        <form action="{{ url('/layanan') }}" method="GET" class="layanan-search">
+
+            @if($pilihan)
+                <input type="hidden" name="kategori" value="{{ $pilihan }}">
+            @endif
+
+            <input
+                type="text"
+                name="q"
+                placeholder="Cari kategori jasa..."
+                value="{{ $pencarian }}"
+            >
+
+            <button type="submit">
+                Cari Jasa
+            </button>
+
+        </form>
+
+        {{-- DAFTAR KATEGORI --}}
+        <div class="layanan-grid">
+
+            @forelse($hasil as $item)
+
+                <article class="layanan-card">
+
+                    <div class="layanan-icon">
+                        {{ $item['icon'] }}
+                    </div>
+
+                    <h3>{{ $item['nama'] }}</h3>
+
+                    <p>{{ $item['deskripsi'] }}</p>
+
+                    <div class="layanan-harga">
+                        {{ $item['harga'] }}
+                    </div>
+
+                    <div class="layanan-penyedia">
+                        {{ $item['penyedia'] }}
+                    </div>
+
+                    <a href="{{ url('/register') }}" class="layanan-btn">
+                        Pilih Layanan
+                    </a>
+
+                </article>
+
+            @empty
+
+                <div class="layanan-kosong">
+                    <h3>Kategori Tidak Ditemukan</h3>
+
+                    <p>
+                        Maaf, kategori yang Anda cari belum tersedia.
+                        Silakan coba kata kunci lainnya.
+                    </p>
+
+                    <a href="{{ url('/layanan') }}" class="layanan-btn">
+                        Lihat Semua Kategori
+                    </a>
+                </div>
+
+            @endforelse
+
+        </div>
+
+        {{-- CTA --}}
+        <div class="layanan-cta">
+
+            <h2>Ingin Menjadi Penyedia Jasa?</h2>
+
+            <p>
+                Daftarkan diri Anda dan tawarkan keahlian
+                kepada pelanggan melalui JasaKita.
+            </p>
+
+            <a href="{{ url('/register') }}">
+                Daftar Sekarang
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+@endsection
