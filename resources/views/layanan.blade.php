@@ -254,3 +254,160 @@
         margin-bottom: 8px;
     }
  
+     .layanan-penyedia {
+        color: var(--muted);
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+ 
+    .layanan-btn {
+        display: inline-block;
+        width: 100%;
+        padding: 12px;
+        background: var(--purple-dark);
+        color: white;
+        text-decoration: none;
+        border-radius: 9px;
+        font-weight: bold;
+        margin-top: auto;
+        transition: .3s;
+    }
+ 
+    .layanan-btn:hover {
+        background: var(--purple);
+        color: white;
+    }
+ 
+    .layanan-kosong {
+        text-align: center;
+        color: var(--muted);
+        padding: 40px 20px;
+        background: var(--bg2);
+        border-radius: 15px;
+        grid-column: 1 / -1;
+    }
+ 
+    .layanan-kosong h3 {
+        color: white;
+    }
+ 
+    .layanan-cta {
+        text-align: center;
+        background: linear-gradient(135deg, #6d28d9, #4c1d95);
+        padding: 50px 20px;
+        border-radius: 18px;
+        margin-top: 70px;
+    }
+ 
+    .layanan-cta h2 {
+        margin: 0 0 12px;
+        color: white;
+    }
+ 
+    .layanan-cta p {
+        color: #e4d9ff;
+        margin-bottom: 22px;
+    }
+ 
+    .layanan-cta a {
+        display: inline-block;
+        background: white;
+        color: #2a1b5e;
+        padding: 12px 28px;
+        border-radius: 9px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: .3s;
+    }
+ 
+    .layanan-cta a:hover {
+        background: #ede9fe;
+        transform: translateY(-2px);
+    }
+ 
+    @media (max-width: 850px) {
+        .layanan-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+ 
+    @media (max-width: 550px) {
+        .layanan-grid {
+            grid-template-columns: 1fr;
+        }
+ 
+        .layanan-search {
+            flex-direction: column;
+        }
+ 
+        .layanan-container {
+            padding: 45px 15px;
+        }
+ 
+        .layanan-hero {
+            padding: 55px 15px;
+        }
+    }
+</style>
+ 
+<div class="layanan-page">
+ 
+    {{-- HERO --}}
+    <section class="layanan-hero">
+        <p class="label">Platform Jasa Lokal</p>
+ 
+        <h1>Layanan <span>JasaKita</span></h1>
+ 
+        <p class="deskripsi">
+            Butuh jasa tapi sulit mencari?
+            Pilih kategori jasa yang Anda butuhkan
+            dan temukan penyedia jasa terpercaya
+            dengan mudah dan praktis.
+        </p>
+    </section>
+ 
+    {{-- KATEGORI JASA --}}
+    <section class="layanan-container">
+ 
+        <h2 class="layanan-judul">Kategori Jasa</h2>
+ 
+        <p class="layanan-sub">
+            Pilih kategori jasa yang sesuai dengan kebutuhan Anda.
+            Harga dapat berbeda sesuai penyedia jasa.
+        </p>
+ 
+        {{-- KATEGORI YANG DIPILIH DARI BERANDA --}}
+        @if($pilihan)
+            <div class="kategori-info">
+                Menampilkan kategori:
+                <strong>{{ $pilihan }}</strong>
+ 
+                &nbsp; | &nbsp;
+ 
+                <a href="{{ url('/layanan') }}">
+                    Tampilkan Semua Kategori
+                </a>
+            </div>
+        @endif
+ 
+        {{-- FORM PENCARIAN --}}
+        <form action="{{ url('/layanan') }}" method="GET" class="layanan-search">
+ 
+            @if($pilihan)
+                <input type="hidden" name="kategori" value="{{ $pilihan }}">
+            @endif
+ 
+            <input
+                type="text"
+                name="q"
+                placeholder="Cari kategori jasa..."
+                value="{{ $pencarian }}"
+            >
+ 
+            <button type="submit">
+                Cari Jasa
+            </button>
+ 
+        </form>
+ 
+        
