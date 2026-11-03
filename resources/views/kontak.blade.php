@@ -1,480 +1,455 @@
 
 @extends('layouts.app')
 
-@section('title', 'Kontak Kami')
+@section('title', 'Kontak')
 
 @section('content')
 
 <style>
-    .contact-header {
-        background: linear-gradient(135deg, #0d6efd, #6610f2);
+    :root {
+        --ungu-gelap: #211A42;
+        --ungu-latar: #2D2354;
+        --ungu-aksen: #A78BFA;
+        --ungu-tombol: #7652F5;
+        --ungu-muda: #F0EAFE;
+    }
+
+    .contact-page {
+        padding: 40px 0;
+    }
+
+    /* Hero */
+    .hero-contact {
+        background: linear-gradient(135deg, #211A42, #2D2354);
         color: white;
-        padding: 60px 20px;
-        border-radius: 18px;
+        padding: 85px 25px;
         text-align: center;
-        margin-bottom: 40px;
+        border-radius: 0;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 65px;
     }
 
-    .contact-header h1 {
+    .hero-contact h1 {
+        font-size: 48px;
+        font-weight: 800;
+        margin: 25px 0;
+    }
+
+    .hero-contact h1 span {
+        color: var(--ungu-aksen);
+    }
+
+    .hero-contact p {
+        color: #ddd6fe;
+        font-size: 17px;
+        line-height: 1.8;
+        max-width: 750px;
+        margin: auto;
+    }
+
+    .hero-label {
+        display: inline-block;
+        padding: 10px 28px;
+        border: 1px solid #7652F5;
+        border-radius: 30px;
+        color: #C4B5FD;
         font-weight: bold;
-        font-size: 38px;
+        letter-spacing: 2px;
     }
 
-    .contact-card {
-        border: none;
-        border-radius: 15px;
-        transition: 0.3s;
+    /* Judul bagian */
+    .section-title {
+        color: var(--ungu-gelap);
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+        color: #777;
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    /* Kartu informasi */
+    .info-card {
+        background: white;
+        border: 1px solid #eee;
+        border-radius: 18px;
+        padding: 30px 20px;
+        text-align: center;
         height: 100%;
+        box-shadow: 0 5px 20px rgba(33, 26, 66, 0.07);
+        transition: 0.3s;
     }
 
-    .contact-card:hover {
+    .info-card:hover {
         transform: translateY(-7px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        box-shadow: 0 10px 25px rgba(33, 26, 66, 0.13);
     }
 
-    .contact-icon {
-        font-size: 42px;
-        margin-bottom: 15px;
+    .info-icon {
+        width: 65px;
+        height: 65px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 18px;
+        background: var(--ungu-muda);
+        color: var(--ungu-tombol);
+        border-radius: 18px;
+        font-size: 28px;
     }
 
-    .contact-form {
+    .info-card h5 {
+        color: var(--ungu-gelap);
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    .info-card p {
+        color: #777;
+        margin-bottom: 20px;
+    }
+
+    /* Tombol */
+    .btn-purple {
+        background: var(--ungu-tombol);
+        color: white;
         border: none;
-        border-radius: 15px;
+        padding: 11px 25px;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: 0.3s;
     }
 
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
+    .btn-purple:hover {
+        background: var(--ungu-gelap);
+        color: white;
+    }
+
+    /* Form */
+    .form-card {
+        background: white;
+        padding: 35px;
+        border-radius: 18px;
+        box-shadow: 0 5px 25px rgba(33, 26, 66, 0.08);
+        border: 1px solid #eee;
+    }
+
+    .form-card h3 {
+        color: var(--ungu-gelap);
+        font-weight: 800;
+        margin-bottom: 25px;
+    }
+
+    .form-control {
         padding: 12px;
         border-radius: 9px;
+        margin-bottom: 18px;
     }
 
-    .faq-item {
-        padding: 20px;
-        border: 1px solid #ddd;
+    .form-control:focus {
+        border-color: var(--ungu-tombol);
+        box-shadow: 0 0 0 0.2rem rgba(118, 82, 245, 0.15);
+    }
+
+    /* FAQ */
+    .faq-box {
+        background: #F8F6FF;
         border-radius: 12px;
+        padding: 20px;
         margin-bottom: 15px;
+        border-left: 4px solid var(--ungu-tombol);
     }
 
-    .whatsapp-float {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 999;
-        border-radius: 30px;
-        padding: 13px 20px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    .faq-box h6 {
+        color: var(--ungu-gelap);
+        font-weight: 700;
     }
 
-    @media(max-width: 576px) {
-        .contact-header h1 {
-            font-size: 28px;
+    .faq-box p {
+        color: #666;
+        margin-bottom: 0;
+    }
+
+    /* Tampilan HP */
+    @media (max-width: 768px) {
+        .hero-contact {
+            padding: 60px 20px;
+        }
+
+        .hero-contact h1 {
+            font-size: 34px;
+        }
+
+        .hero-contact p {
+            font-size: 15px;
+        }
+
+        .form-card {
+            padding: 22px;
         }
     }
 </style>
 
-<div class="container py-5">
+<div class="contact-page">
 
-    {{-- HEADER --}}
-    <div class="contact-header">
-        <span class="badge bg-light text-primary mb-3">
-            Layanan Pelanggan
-        </span>
-
-        <h1>Hubungi Kami</h1>
-
-        <p class="lead">
-            Kami siap membantu kebutuhan jasa Anda.
-        </p>
-
-        <p>
-            Konsultasikan kebutuhan Anda dan dapatkan solusi
-            terbaik bersama tim profesional kami.
-        </p>
-
-        <a href="#form-kontak" class="btn btn-light btn-lg mt-3">
-            Hubungi Sekarang
-        </a>
-    </div>
-
-    {{-- INFORMASI KONTAK --}}
-    <section class="mb-5">
-
-        <div class="text-center mb-4">
-            <h2 class="fw-bold">Informasi Kontak</h2>
-            <p class="text-muted">
-                Silakan hubungi kami melalui informasi berikut.
-            </p>
+    <!-- HERO -->
+    <section class="hero-contact">
+        <div class="hero-label">
+            HUBUNGI JASAKITA
         </div>
 
-        <div class="row g-4">
+        <h1>
+            Mari Terhubung dengan
+            <br>
+            <span>Kami</span>
+        </h1>
 
-            {{-- WHATSAPP --}}
-            <div class="col-md-4">
-                <div class="card contact-card shadow-sm">
-                    <div class="card-body text-center p-4">
+        <p>
+            Kami siap membantu kebutuhan jasa Anda.
+            Jangan ragu untuk menghubungi kami jika
+            memiliki pertanyaan atau membutuhkan informasi
+            lebih lanjut mengenai layanan JasaKita.
+        </p>
+    </section>
 
-                        <div class="contact-icon">📱</div>
+    <div class="container">
 
+        <!-- INFORMASI KONTAK -->
+        <section class="mb-5">
+
+            <h2 class="section-title">Informasi Kontak</h2>
+
+            <p class="section-subtitle">
+                Hubungi kami melalui beberapa pilihan berikut.
+            </p>
+
+            <div class="row g-4">
+
+                <!-- WhatsApp -->
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="info-icon">📱</div>
                         <h5>WhatsApp</h5>
-
-                        <p class="text-muted">
-                            Konsultasi dan pemesanan jasa dengan mudah.
+                        <p>
+                            Konsultasi dan pemesanan jasa
+                            dengan mudah melalui WhatsApp.
                         </p>
-
                         <a href="https://wa.me/6281234567890"
                            target="_blank"
                            rel="noopener noreferrer"
-                           class="btn btn-success w-100">
-                            Chat Sekarang
+                           class="btn-purple">
+                            Hubungi Kami
                         </a>
-
                     </div>
                 </div>
-            </div>
 
-            {{-- EMAIL --}}
-            <div class="col-md-4">
-                <div class="card contact-card shadow-sm">
-                    <div class="card-body text-center p-4">
-
-                        <div class="contact-icon">📧</div>
-
+                <!-- Email -->
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="info-icon">✉️</div>
                         <h5>Email</h5>
-
-                        <p class="text-muted">
-                            Kirim pertanyaan dan permintaan informasi.
+                        <p>
+                            Kirim pertanyaan atau pesan
+                            kepada kami melalui email.
                         </p>
-
                         <a href="mailto:email@contoh.com"
-                           class="btn btn-primary w-100">
+                           class="btn-purple">
                             Kirim Email
                         </a>
-
                     </div>
                 </div>
-            </div>
 
-            {{-- JAM OPERASIONAL --}}
-            <div class="col-md-4">
-                <div class="card contact-card shadow-sm">
-                    <div class="card-body text-center p-4">
-
-                        <div class="contact-icon">🕒</div>
-
-                        <h5>Jam Operasional</h5>
-
-                        <p class="text-muted">
-                            Senin - Sabtu<br>
-                            08.00 - 17.00 WIB
+                <!-- Lokasi -->
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <h5>Lokasi</h5>
+                        <p>
+                            Temukan lokasi kami dan
+                            dapatkan petunjuk arah.
                         </p>
-
-                        <span class="badge bg-success">
-                            Jam Pelayanan
-                        </span>
-
+                        <a href="https://www.google.com/maps"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn-purple">
+                            Lihat Lokasi
+                        </a>
                     </div>
                 </div>
-            </div>
-
-        </div>
-    </section>
-
-    {{-- FORM PEMESANAN --}}
-    <section class="mb-5" id="form-kontak">
-
-        <div class="row g-4">
-
-            <div class="col-lg-5">
-
-                <h2 class="fw-bold mb-3">
-                    Mari Bekerja Sama!
-                </h2>
-
-                <p class="text-muted">
-                    Kami menyediakan berbagai layanan jasa
-                    profesional sesuai kebutuhan pelanggan.
-                    Silakan isi formulir untuk memulai konsultasi.
-                </p>
-
-                <div class="bg-light rounded-3 p-3 mb-3">
-                    <h6>✅ Pelayanan Profesional</h6>
-                    <p class="text-muted mb-0">
-                        Memberikan pelayanan terbaik kepada pelanggan.
-                    </p>
-                </div>
-
-                <div class="bg-light rounded-3 p-3 mb-3">
-                    <h6>⚡ Respon Cepat</h6>
-                    <p class="text-muted mb-0">
-                        Memudahkan komunikasi antara pelanggan dan admin.
-                    </p>
-                </div>
-
-                <div class="bg-light rounded-3 p-3">
-                    <h6>💡 Solusi Terbaik</h6>
-                    <p class="text-muted mb-0">
-                        Layanan disesuaikan dengan kebutuhan pelanggan.
-                    </p>
-                </div>
 
             </div>
+        </section>
 
-            <div class="col-lg-7">
+        <!-- FORM KONTAK -->
+        <section class="my-5">
 
-                <div class="card contact-form shadow-sm">
+            <div class="row justify-content-center">
 
-                    <div class="card-body p-4">
+                <div class="col-lg-8">
 
-                        <h3 class="fw-bold mb-4">
-                            Formulir Pemesanan Jasa
+                    <div class="form-card">
+
+                        <h3 class="text-center">
+                            Kirim Pesan kepada Kami
                         </h3>
 
-                        <form id="formKontak">
+                        <form id="contactForm">
 
-                            <div class="mb-3">
-                                <label class="form-label">
-                                    Nama Lengkap
-                                </label>
+                            <label class="form-label">
+                                Nama Lengkap
+                            </label>
 
-                                <input type="text"
-                                       id="nama"
-                                       class="form-control"
-                                       placeholder="Masukkan nama lengkap"
-                                       required>
-                            </div>
+                            <input type="text"
+                                   id="nama"
+                                   class="form-control"
+                                   placeholder="Masukkan nama Anda"
+                                   required>
 
-                            <div class="mb-3">
-                                <label class="form-label">
-                                    Email
-                                </label>
+                            <label class="form-label">
+                                Email
+                            </label>
 
-                                <input type="email"
-                                       id="email"
-                                       class="form-control"
-                                       placeholder="nama@email.com"
-                                       required>
-                            </div>
+                            <input type="email"
+                                   id="email"
+                                   class="form-control"
+                                   placeholder="Masukkan email Anda"
+                                   required>
 
-                            <div class="mb-3">
-                                <label class="form-label">
-                                    Nomor WhatsApp
-                                </label>
+                            <label class="form-label">
+                                Subjek
+                            </label>
 
-                                <input type="tel"
-                                       id="telepon"
-                                       class="form-control"
-                                       placeholder="081234567890"
-                                       required>
-                            </div>
+                            <input type="text"
+                                   id="subjek"
+                                   class="form-control"
+                                   placeholder="Masukkan subjek pesan"
+                                   required>
 
-                            <div class="mb-3">
-                                <label class="form-label">
-                                    Jenis Layanan
-                                </label>
+                            <label class="form-label">
+                                Pesan
+                            </label>
 
-                                <select id="layanan"
-                                        class="form-select"
-                                        required>
-
-                                    <option value="">
-                                        -- Pilih Layanan --
-                                    </option>
-
-                                    <option value="Pembuatan Website">
-                                        Pembuatan Website
-                                    </option>
-
-                                    <option value="Desain Grafis">
-                                        Desain Grafis
-                                    </option>
-
-                                    <option value="Pemrograman">
-                                        Pemrograman
-                                    </option>
-
-                                    <option value="Konsultasi IT">
-                                        Konsultasi IT
-                                    </option>
-
-                                    <option value="Layanan Lainnya">
-                                        Layanan Lainnya
-                                    </option>
-
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label">
-                                    Perkiraan Anggaran
-                                </label>
-
-                                <select id="anggaran"
-                                        class="form-select">
-
-                                    <option value="Belum ditentukan">
-                                        Pilih Anggaran
-                                    </option>
-
-                                    <option value="Di bawah Rp500.000">
-                                        Di bawah Rp500.000
-                                    </option>
-
-                                    <option value="Rp500.000 - Rp1.000.000">
-                                        Rp500.000 - Rp1.000.000
-                                    </option>
-
-                                    <option value="Rp1.000.000 - Rp5.000.000">
-                                        Rp1.000.000 - Rp5.000.000
-                                    </option>
-
-                                    <option value="Di atas Rp5.000.000">
-                                        Di atas Rp5.000.000
-                                    </option>
-
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label">
-                                    Detail Kebutuhan
-                                </label>
-
-                                <textarea id="pesan"
-                                          class="form-control"
-                                          rows="5"
-                                          placeholder="Jelaskan kebutuhan jasa Anda..."
-                                          required></textarea>
-                            </div>
+                            <textarea id="pesan"
+                                      class="form-control"
+                                      rows="5"
+                                      placeholder="Tuliskan pesan Anda..."
+                                      required></textarea>
 
                             <button type="submit"
-                                    class="btn btn-primary btn-lg w-100">
-                                Kirim Pesanan via WhatsApp
+                                    class="btn-purple w-100">
+                                Kirim Pesan melalui WhatsApp
                             </button>
-
-                            <p class="small text-muted mt-3 mb-0">
-                                Pesanan akan diteruskan melalui WhatsApp.
-                            </p>
 
                         </form>
 
                     </div>
+
                 </div>
 
             </div>
-        </div>
-    </section>
 
-    {{-- FAQ --}}
-    <section class="mb-5">
+        </section>
 
-        <div class="text-center mb-4">
-            <h2 class="fw-bold">Pertanyaan Umum</h2>
+        <!-- FAQ -->
+        <section class="my-5">
 
-            <p class="text-muted">
-                Beberapa informasi yang sering ditanyakan pelanggan.
+            <h2 class="section-title">
+                Pertanyaan yang Sering Diajukan
+            </h2>
+
+            <p class="section-subtitle">
+                Beberapa informasi yang mungkin Anda butuhkan.
             </p>
-        </div>
 
-        <div class="faq-item">
-            <h5>1. Bagaimana cara memesan jasa?</h5>
-            <p class="text-muted mb-0">
-                Isi formulir pemesanan kemudian kirim melalui WhatsApp.
-            </p>
-        </div>
+            <div class="row">
 
-        <div class="faq-item">
-            <h5>2. Apakah harga jasa bisa disesuaikan?</h5>
-            <p class="text-muted mb-0">
-                Harga dapat disesuaikan dengan kebutuhan dan
-                tingkat kesulitan pekerjaan.
-            </p>
-        </div>
+                <div class="col-md-6">
+                    <div class="faq-box">
+                        <h6>1. Bagaimana cara memesan jasa?</h6>
+                        <p>
+                            Anda dapat menghubungi kami melalui
+                            WhatsApp atau mengirimkan pesan
+                            melalui formulir kontak.
+                        </p>
+                    </div>
+                </div>
 
-        <div class="faq-item">
-            <h5>3. Bagaimana cara mengetahui progres pekerjaan?</h5>
-            <p class="text-muted mb-0">
-                Pelanggan dapat menghubungi admin untuk mengetahui
-                perkembangan pekerjaan.
-            </p>
-        </div>
+                <div class="col-md-6">
+                    <div class="faq-box">
+                        <h6>2. Apakah layanan tersedia setiap hari?</h6>
+                        <p>
+                            Silakan hubungi kami untuk mengetahui
+                            jadwal dan ketersediaan layanan.
+                        </p>
+                    </div>
+                </div>
 
-        <div class="faq-item">
-            <h5>4. Apakah bisa konsultasi terlebih dahulu?</h5>
-            <p class="text-muted mb-0">
-                Tentu, pelanggan dapat berkonsultasi sebelum
-                melakukan pemesanan jasa.
-            </p>
-        </div>
+                <div class="col-md-6">
+                    <div class="faq-box">
+                        <h6>3. Bagaimana cara mengetahui harga jasa?</h6>
+                        <p>
+                            Hubungi tim kami untuk mendapatkan
+                            informasi harga sesuai kebutuhan Anda.
+                        </p>
+                    </div>
+                </div>
 
-    </section>
+                <div class="col-md-6">
+                    <div class="faq-box">
+                        <h6>4. Apakah bisa konsultasi terlebih dahulu?</h6>
+                        <p>
+                            Tentu, Anda dapat berkonsultasi
+                            sebelum melakukan pemesanan jasa.
+                        </p>
+                    </div>
+                </div>
 
-    {{-- PENUTUP --}}
-    <section class="text-center bg-light rounded-4 p-5 mb-4">
+            </div>
 
-        <h2 class="fw-bold">
-            Siap Memulai Proyek Anda?
-        </h2>
+        </section>
 
-        <p class="text-muted mt-3">
-            Jangan ragu untuk menghubungi kami.
-            Kami siap membantu kebutuhan jasa Anda.
-        </p>
-
-        <a href="https://wa.me/6281234567890"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-primary btn-lg mt-2">
-            Konsultasi Sekarang
-        </a>
-
-    </section>
+    </div>
 
 </div>
 
-{{-- FLOATING WHATSAPP --}}
-<a href="https://wa.me/6281234567890"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="btn btn-success whatsapp-float">
-
-    💬 Hubungi Kami
-
-</a>
-
-{{-- JAVASCRIPT --}}
+<!-- JAVASCRIPT FORM WHATSAPP -->
 <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
 
-document.getElementById('formKontak').addEventListener('submit', function(event) {
+        e.preventDefault();
 
-    event.preventDefault();
+        const nama = document.getElementById('nama').value;
+        const email = document.getElementById('email').value;
+        const subjek = document.getElementById('subjek').value;
+        const pesan = document.getElementById('pesan').value;
 
-    const nama = document.getElementById('nama').value;
-    const email = document.getElementById('email').value;
-    const telepon = document.getElementById('telepon').value;
-    const layanan = document.getElementById('layanan').value;
-    const anggaran = document.getElementById('anggaran').value;
-    const pesan = document.getElementById('pesan').value;
+        const nomorWhatsApp = "6281234567890";
 
-    // Ganti dengan nomor WhatsApp admin
-    const nomorWhatsApp = "6281234567890";
+        const teks =
+            "Halo JasaKita, saya ingin menghubungi Anda.%0A%0A" +
+            "Nama: " + nama + "%0A" +
+            "Email: " + email + "%0A" +
+            "Subjek: " + subjek + "%0A" +
+            "Pesan: " + pesan;
 
-    const teks =
-        "HALO, SAYA INGIN MEMESAN JASA\n\n" +
-        "Nama: " + nama + "\n" +
-        "Email: " + email + "\n" +
-        "Nomor WhatsApp: " + telepon + "\n" +
-        "Jenis Layanan: " + layanan + "\n" +
-        "Anggaran: " + anggaran + "\n\n" +
-        "Detail Kebutuhan:\n" + pesan;
+        const url = "https://wa.me/" + nomorWhatsApp +
+                    "?text=" + encodeURIComponent(
+                        "Halo JasaKita, saya ingin menghubungi Anda.\n\n" +
+                        "Nama: " + nama + "\n" +
+                        "Email: " + email + "\n" +
+                        "Subjek: " + subjek + "\n" +
+                        "Pesan: " + pesan
+                    );
 
-    const url = "https://wa.me/" + nomorWhatsApp +
-                "?text=" + encodeURIComponent(teks);
+        window.open(url, "_blank");
 
-    window.open(url, "_blank");
-
-});
-
+    });
 </script>
 
 @endsection
