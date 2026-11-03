@@ -410,4 +410,73 @@
  
         </form>
  
-        
+         {{-- DAFTAR KATEGORI --}}
+        <div class="layanan-grid">
+ 
+            @forelse($hasil as $item)
+ 
+                <article class="layanan-card">
+ 
+                    <div class="layanan-icon">
+                        {{ $item['icon'] }}
+                    </div>
+ 
+                    <h3>{{ $item['nama'] }}</h3>
+ 
+                    <p>{{ $item['deskripsi'] }}</p>
+ 
+                    <div class="layanan-harga">
+                        {{ $item['harga'] }}
+                    </div>
+ 
+                    <div class="layanan-penyedia">
+                        {{ $item['penyedia'] }}
+                    </div>
+ 
+                    <a href="{{ url('/register') }}" class="layanan-btn">
+                        Pilih Layanan
+                    </a>
+ 
+                </article>
+ 
+            @empty
+ 
+                <div class="layanan-kosong">
+                    <h3>Kategori Tidak Ditemukan</h3>
+ 
+                    <p>
+                        Maaf, kategori yang Anda cari belum tersedia.
+                        Silakan coba kata kunci lainnya.
+                    </p>
+ 
+                    <a href="{{ url('/layanan') }}" class="layanan-btn">
+                        Lihat Semua Kategori
+                    </a>
+                </div>
+ 
+            @endforelse
+ 
+        </div>
+ 
+        {{-- CTA --}}
+        <div class="layanan-cta">
+ 
+            <h2>Ingin Menjadi Penyedia Jasa?</h2>
+ 
+            <p>
+                Daftarkan diri Anda dan tawarkan keahlian
+                kepada pelanggan melalui JasaKita.
+            </p>
+ 
+            <a href="{{ url('/register') }}">
+                Daftar Sekarang
+            </a>
+ 
+        </div>
+ 
+    </section>
+ 
+</div>
+ 
+@endsection
+ 
